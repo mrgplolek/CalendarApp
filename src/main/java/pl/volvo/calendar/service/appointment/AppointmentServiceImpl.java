@@ -36,6 +36,11 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
+    public ResponseEntity<?> getAppointmentByOrganizer(String organizer) {
+        return new ResponseEntity<>(appointmentRepository.getAppointmentByOrganizer(organizer), HttpStatus.OK);
+    }
+
+    @Override
     public ResponseEntity<?> postRecurringAppointment(RecurringAppointmentDto recurringAppointmentDto){
         List<AppointmentDto> listOfAppointmentsDto = new ArrayList<>();
         List<Appointment> listOfAppointments = new ArrayList<>();
@@ -55,7 +60,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public ResponseEntity<?> getAppoointemtsBetweendDates(String sDate, String eDate){
+    public ResponseEntity<?> getAppointemtsBetweendDates(String sDate, String eDate){
         OffsetDateTime startDate = OffsetDateTime.parse(sDate);
         OffsetDateTime endDate = OffsetDateTime.parse(eDate);
         return new ResponseEntity<>(appointmentRepository.getAllBetweenDates(startDate, endDate), HttpStatus.OK);

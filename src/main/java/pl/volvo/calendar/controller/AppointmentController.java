@@ -27,6 +27,11 @@ public class AppointmentController {
         return appointmentService.getAppointment(id);
     }
 
+    @GetMapping("/organizer")
+    public ResponseEntity<?> getAppointmentsByOrganizer(@RequestParam String organizer){
+        return appointmentService.getAppointmentByOrganizer(organizer);
+    }
+
     @PostMapping("/recurring")
     public ResponseEntity<?> createRecurringAppointment(@RequestBody RecurringAppointmentDto recurringAppointmentDto){
         return appointmentService.postRecurringAppointment(recurringAppointmentDto);
@@ -34,6 +39,6 @@ public class AppointmentController {
 
     @GetMapping("/betweenDates")
     public ResponseEntity<?> showAppointmentsBetweenDates(@RequestParam String startDate, @RequestParam String endDate){
-        return appointmentService.getAppoointemtsBetweendDates(startDate, endDate);
+        return appointmentService.getAppointemtsBetweendDates(startDate, endDate);
     }
 }

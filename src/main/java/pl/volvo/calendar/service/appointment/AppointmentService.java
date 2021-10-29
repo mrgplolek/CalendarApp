@@ -10,6 +10,7 @@ public interface AppointmentService {
     Appointment postAppointment(AppointmentDto appointmentDto);
     Appointment getAppointment(Long id);
     ResponseEntity<?> postRecurringAppointment(RecurringAppointmentDto recurringAppointmentDto);
-    ResponseEntity<?> getAppoointemtsBetweendDates(String sDate, String eDate);
+    ResponseEntity<?> getAppointemtsBetweendDates(String sDate, String eDate);
+    ResponseEntity<?> getAppointmentByOrganizer(String organizer);
 }
 
